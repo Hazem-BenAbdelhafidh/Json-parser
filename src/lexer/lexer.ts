@@ -1,22 +1,5 @@
 import { isFalse, isNull, isNumber, isTrue } from "./helpers";
-
-export type TokenType =
-  | "OpenBrace"
-  | "CloseBrace"
-  | "OpenBracket"
-  | "CloseBracket"
-  | "String"
-  | "Number"
-  | "False"
-  | "True"
-  | "Null"
-  | "Colon"
-  | "Comma";
-
-export interface Token {
-  kind: TokenType;
-  value: string;
-}
+import { Token } from "./types";
 
 export class Lexer {
   input: string;
@@ -66,9 +49,9 @@ export class Lexer {
           this.nextChar();
         }
         tokens.push({ kind: "String", value: strValue });
-      } else if (/[\d\w$@#%&*!]/.test(this.currChar)) {
+      } else if (/[\d\w$@#%&*!.]/.test(this.currChar)) {
         let value = "";
-        while (/[\d\w$@#%&*!]/.test(this.currChar)) {
+        while (/[\d\w$@#%&*!.]/.test(this.currChar)) {
           value += this.currChar;
           this.nextChar();
         }

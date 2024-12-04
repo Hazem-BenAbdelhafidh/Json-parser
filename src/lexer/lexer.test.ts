@@ -1,11 +1,5 @@
-import { Lexer, Token } from "./lexer";
-
-interface Test {
-  name: string;
-  input: string;
-  want: Token[];
-  err: Error | null;
-}
+import { Lexer } from "./lexer";
+import { Test } from "./types";
 
 describe("constructor and nextChar test: ", () => {
   it("should increment curr pos and give correct value for curr char : ", () => {
