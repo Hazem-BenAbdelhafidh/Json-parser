@@ -1,13 +1,14 @@
 {
   "name": "json-parser",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/main.ts",
   "scripts": {
-    "start" : "node dist/index.ts",
+    "start": "node --loader ts-node/esm src/main.ts",
     "test": "jest"
   },
   "keywords": [],
   "author": "",
+  "type": "module",
   "license": "ISC",
   "description": "",
   "devDependencies": {
